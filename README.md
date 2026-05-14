@@ -1,120 +1,57 @@
 # Python Learning Notes
 
-这是一个按天记录的 Python 基础练习项目，目标是把“语法点 + 小例子 + 自己的理解”逐步积累下来，方便后续复习。
+这是我的 Python 学习仓库。
+
+目前 `day1-6 'base'` 这一部分是基础阶段，主要用来系统练习 Python 基础语法、文件操作、面向对象和测试。后面继续学习时，会逐步加入项目练习，把前面的基础知识真正用起来。
 
 ## 当前结构
 
 ```text
 python/
-|- day1.py
-|- day1_test.py
-|- day2.py
-|- day3.py
-|- day3_import.py
-|- day4/
-|  |- __init__.py
-|  |- __main__.py
-|  |- car.py
-|  |- demo.py
-|  |- dog.py
-|  `- electric_car.py
-|- day4_import.py
-|- day5/
-|  |- pi_string.py
-|  |- remember_me.py
-|  |- write_name.py
-|  `- files/
-|     |- name.txt
-|     |- pi_million_digits.txt
-|     `- username.json
-|- day6/
-|  |- name_function.py
-|  `- test_name.py
+|- day1-6 'base'/
 `- README.md
 ```
 
-## 学习内容
+## 学习阶段
 
-### Day 1
+### 第一阶段：基础
 
-基础数据类型和常见操作：
+`day1-6 'base'` 是基础内容，按主题逐步练习：
 
-- 字符串
-- 数字
-- 列表
-- 切片
-- 元组
-- 字典
-- 集合
+- Day 1: 基础数据类型和常见操作
+- Day 2: 条件判断、循环、输入与列表处理
+- Day 3: 函数、参数、模块导入
+- Day 4: 类、对象、继承、组合
+- Day 5: 文件读写、`Path`、`json`
+- Day 6: `pytest` 单元测试基础
 
-### Day 2
+### 第二阶段：项目
 
-流程控制相关内容：
-
-- `if` 条件判断
-- `for` 循环和 `range()`
-- `while` 循环
-- `input()`
-- 列表处理练习
-
-### Day 3
-
-函数与模块：
-
-- `def`
-- 默认参数
-- 位置参数和关键字参数
-- `*args`
-- 模块导入
-
-### Day 4
-
-面向对象基础：
-
-- 类和对象
-- 属性读写
-- 继承
-- 方法重写
-- 组合
-
-### Day 5
-
-文件与异常处理入门：
-
-- 用 `Path` 读取和写入文件
-- 处理百万位圆周率文本
-- 使用 `json` 保存用户名
-- 理解相对路径和脚本路径
-
-### Day 6
-
-测试基础：
-
-- 编写函数 `get_formatted_name()`
-- 使用 `pytest` 写简单单元测试
-- 通过断言验证函数输出
+后面的学习会逐步进入项目练习，
 
 ## 如何运行
 
-运行
+如果当前目录在仓库根目录，可以这样运行基础阶段的代码：
 
 ```bash
-python xx.py
+python "day1-6 'base'/day1.py"
+python -m pytest "day1-6 'base'/day6/test_name.py"
+```
+
+也可以先进入基础目录再运行：
+
+```bash
+cd "day1-6 'base'"
+python day4_import.py
+python -m pytest day6/test_name.py
 ```
 
 ## pytest 说明
 
-如果终端里直接输入 `pytest` 提示“无法识别”，通常不是没安装，而是 `pytest.exe` 没有加入系统的 `Path`。
+如果终端里直接输入 `pytest` 提示“无法识别”，通常不是没安装，而是 `pytest.exe` 没有加入系统环境变量 `Path`。
 
-这种情况下，优先使用下面这条命令：
+这种情况下，优先使用：
 
 ```bash
 python -m pytest day6/test_name.py
 ```
-
-## 后续建议
-
-- 保持“一天一个主题”的结构，方便回顾
-- 练习文件读写时，尽量使用 `Path(__file__).parent` 处理路径
-- 写测试时，优先用 `python -m pytest`
-- 后面内容变多后，可以再拆分成 `notes/`、`examples/`、`exercises/`
