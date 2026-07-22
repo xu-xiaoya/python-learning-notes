@@ -34,11 +34,35 @@ def demo_strings() -> None:
 def demo_numbers() -> None:
     print_section("数字与运算")
 
-    age = 2
-    result = age**3
-    print(result)  # 2^3 = 8
-    print(3 % 2)   # 1，可以用来判断奇偶
+    # 基本算术运算
+    print(7 + 2)   # 9   加
+    print(7 - 2)   # 5   减
+    print(7 * 2)   # 14  乘
+    print(7 / 2)   # 3.5 除（结果一定是小数 float）
+    print(7 // 2)  # 3   整除（只取商，去掉小数部分）
+    print(7 % 2)   # 1   取余（判断奇偶：% 2 == 0 就是偶数）
     print(6 % 3)   # 0
+    age = 2
+    print(age**3)  # 8   幂：2 的 3 次方
+
+    # 复合赋值运算符：x += 1 是 x = x + 1 的简写
+    count = 10
+    count += 5     # count = count + 5 → 15
+    print(count)
+    count -= 3     # 15 - 3 → 12
+    print(count)
+    count *= 2     # 12 * 2 → 24
+    print(count)
+    count //= 5    # 24 // 5 → 4
+    print(count)
+    count **= 2    # 4 的 2 次方 → 16
+    print(count)
+
+    # 字符串也能用 + 和 +=（拼接），* 表示重复
+    greeting = "ha"
+    greeting += "ha"      # "haha"
+    print(greeting)
+    print("=" * 10)       # 重复 10 次 "=========="
 
 # 列表 
 def demo_lists() -> None:

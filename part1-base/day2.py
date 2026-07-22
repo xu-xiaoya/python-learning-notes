@@ -31,6 +31,21 @@ def demo_conditions() -> None:
     if "salade" not in foods:
         print("no!!")
 
+    # is / is not：比"身份"(是不是同一个对象)，== 比"值"(内容是否相等)
+    # 判断值是否相等，几乎总是用 ==；is 主要用来和 None 比较
+    a = [1, 2, 3]
+    b = [1, 2, 3]
+    print(a == b)   # True  值相同
+    print(a is b)   # False 是两个不同的列表对象
+    c = a
+    print(a is c)   # True  c 和 a 指向同一个对象
+
+    # 和 None 判断，用 is None / is not None（约定俗成）
+    value = None
+    print(value is None)      # True
+    print(value is not None)  # False
+    # 坑：小整数/短字符串因为 Python 内部缓存，is 有时"碰巧"是 True，别依赖它！判断值一律用 ==
+
     print(f"cost {get_ticket_price(age_0)}$")
 
 # 循环
