@@ -25,6 +25,11 @@ def demo_strings() -> None:
     birthday_message = f"happy {age}nd birthday"
     print(birthday_message)
 
+    # len() 返回字符个数；切片 [::-1] 表示从尾到头、每次走 1 步
+    word = "python"
+    print("字符个数:", len(word))       # 6
+    print("反转字符串:", word[::-1])   # nohtyp
+
 # 运算符号
 def demo_numbers() -> None:
     print_section("数字与运算")
@@ -43,6 +48,16 @@ def demo_lists() -> None:
     numbers_in_french[3] = "quatre_"
     ''' 访问元素（-1代表倒数第一个）'''
     print(numbers_in_french[0], numbers_in_french[-1])
+    print("列表长度:", len(numbers_in_french))
+
+    # 根据值查找元素：in 判断是否存在，index() 返回第一次出现的索引
+    target = "trois"
+    if target in numbers_in_french:
+        target_index = numbers_in_french.index(target)
+        print(f"{target} 的索引是:", target_index)
+
+    # count() 统计某个值出现了几次
+    print("trois 出现次数:", numbers_in_french.count("trois"))
 
     ''' 添加元素 '''
     numbers_in_french.append("six")
@@ -95,12 +110,14 @@ def demo_sorting() -> None:
 def demo_slices_and_copies() -> None:
     print_section("切片与复制")
 
-    # 切片【指定使用的第一个元素和最后一个元素的index】
+    # 完整写法：[开始索引:结束索引:步长]，不包含结束索引
     players = ["A", "B", "C", "D", "E"]
-    print(players[0:3]) 
-    print(players[:4]) #从头开始
-    print(players[2:]) #到尾截至
-    print(players[-2:]) #输出最后2个元素
+    print(players[0:3])    # ['A', 'B', 'C']
+    print(players[:4])     # 省略开始索引：从头开始
+    print(players[2:])     # 省略结束索引：一直到末尾
+    print(players[-2:])    # 最后 2 个元素
+    print(players[::2])    # 步长为 2：隔一个取一个
+    print(players[::-1])   # 步长为 -1：生成倒序的新列表
 
     # 复制
     ## 引用地址相同

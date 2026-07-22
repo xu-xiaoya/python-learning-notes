@@ -42,6 +42,14 @@ def demo_for_loops_and_ranges() -> None:
         print(f"{fruit} c'est delicieuse!")
     print("j'aimerais les acheter!")
 
+    # 同时需要索引和值时使用 enumerate()，比手动维护索引更方便
+    for index, fruit in enumerate(fruits):
+        print(index, fruit)
+
+    # start=1 可以让编号从 1 开始（但列表索引本身仍从 0 开始）
+    for number, fruit in enumerate(fruits, start=1):
+        print(f"第 {number} 种水果: {fruit}")
+
     for value in range(1, 5):
         print(value) # 不包含5
 
@@ -138,6 +146,16 @@ def demo_list_processing() -> None:
     print("confirmed users:", confirmed_users)
 
     pets = ["dog", "cat", "dog", "fish", "cat"]
+
+    # 查找第一个匹配值的位置；先用 in 判断，避免 index() 找不到时报错
+    target = "fish"
+    if target in pets:
+        print("first fish index:", pets.index(target))
+
+    # 查找所有匹配值的位置
+    dog_indexes = [index for index, pet in enumerate(pets) if pet == "dog"]
+    print("all dog indexes:", dog_indexes)
+
     pets_without_cats = remove_all_occurrences(pets, "cat")
     print("pets after removal:", pets_without_cats)
 
