@@ -28,6 +28,16 @@ def afficher(depart, limite=10):
     print("绕圈顺序:", vus, "(然后又回到", depart.val, ")")
 
 
+def supprimer_suivant(prev):
+    """
+    删掉 prev 后面的那个节点（即 prev.next）。
+    例子：  prev → cible → apres      想删掉 cible
+    变成：  prev ─────────→ apres
+    原理：没人再指向 cible，它就从环里"消失"了（被 Python 自动回收）。
+    """
+    prev.next = prev.next.next
+
+
 def main():
     tete = construire_cercle([1, 2, 3, 4])
     afficher(tete)
@@ -36,6 +46,11 @@ def main():
     print("下一个的下一个:", tete.next.next.val)
     print("再下一个的下一个:", tete.next.next.next.val)
     print("绕回来了吗:", tete.next.next.next.next.val, "← 应该又是1")
+
+    # 删掉 tete 后面那个节点（值 2）：tete 是 1，tete.next 是 2
+    supprimer_suivant(tete)
+    print("删掉值 2 之后:")
+    afficher(tete)  # 应该是 [1, 3, 4]
 
 
 if __name__ == "__main__":
